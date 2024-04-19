@@ -1,4 +1,3 @@
-import e from "express";
 import { app, sequelize } from "../express";
 import request from "supertest";
 
@@ -39,7 +38,7 @@ describe("E2E tests for customer", () => {
 				name: "John"
 			});
 
-		expect(response.status).toBe(500);
+		expect(response.status).toBe(400);
 	});
 
 	it("should list all customers", async () => {

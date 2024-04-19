@@ -2,7 +2,7 @@ import { InputCreateProductDto, OutputCreateProductDto } from "./create.product.
 import ProductFactory from "../../../domain/product/factory/product.factory";
 import ProductRepositoryInterface from "../../../domain/product/repository/product.repository.interface";
 
-export default class CreateCustomerUseCase {
+export default class CreateProductUseCase {
 	private productRepository: ProductRepositoryInterface;
 
 	constructor(productRepository: ProductRepositoryInterface) {
