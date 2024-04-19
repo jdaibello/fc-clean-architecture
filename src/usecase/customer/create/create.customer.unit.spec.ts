@@ -37,7 +37,7 @@ describe("Unit test - create customer use case", () => {
 		});
 	});
 
-	it("shold thrown an error when name is missing", async () => {
+	it("should thrown an error when name is missing", async () => {
 		const customerRepository = MockRepository();
 		const usecase = new CreateCustomerUseCase(customerRepository);
 
@@ -46,7 +46,7 @@ describe("Unit test - create customer use case", () => {
 		await expect(usecase.execute(input)).rejects.toThrow("Name is required");
 	});
 
-	it("shold thrown an error when street is missing", async () => {
+	it("should thrown an error when street is missing", async () => {
 		const customerRepository = MockRepository();
 		const usecase = new CreateCustomerUseCase(customerRepository);
 
