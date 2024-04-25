@@ -10,6 +10,10 @@ export default class Notification {
 		this.errors.push(error);
 	}
 
+	hasErrors(): boolean {
+		return this.errors.length > 0;
+	}
+
 	messages(context?: string): string {
 		return this.errors
 			.filter(error => context ? error.context === context : true)
