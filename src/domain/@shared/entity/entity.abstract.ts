@@ -9,6 +9,6 @@ export default abstract class Entity {
 	}
 
 	get id(): string {
-		return this.id;
+		return this._id;
 	}
 }
