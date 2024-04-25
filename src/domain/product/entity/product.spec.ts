@@ -2,16 +2,22 @@ import Product from "./product";
 
 describe("Product unit tests", () => {
 	it("should throw error when ID is empty", () => {
-		expect(() => new Product("", "Product 1", 100)).toThrow("ID is required");
+		expect(() => new Product("", "Product 1", 100)).toThrow("product: ID is required");
 	});
 
 	it("should throw error when name is empty", () => {
-		expect(() => new Product("123", "", 100)).toThrow("Name is required");
+		expect(() => new Product("123", "", 100)).toThrow("product: Name is required");
 	});
 
 	it("should throw error when price is less than 0", () => {
 		expect(() => new Product("123", "Name", -1)).toThrow(
-			"Price must be greater than 0"
+			"product: Price must be greater than 0"
+		);
+	});
+
+	it("should throw error when ID and name are empty and price is less than 0", () => {
+		expect(() => new Product("", "", -1)).toThrow(
+			"product: ID is required, product: Name is required, product: Price must be greater than 0"
 		);
 	});
 
