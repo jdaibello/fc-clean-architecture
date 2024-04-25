@@ -2,6 +2,7 @@ import express, { Request, Response } from "express";
 import CreateCustomerUseCase from "../../../usecase/customer/create/create.customer.usecase";
 import CustomerRepository from "../../customer/repository/customer.repository";
 import ListCustomerUseCase from "../../../usecase/customer/list/list.customer.usecase";
+import CustomerPresenter from "../presenters/customer.presenter";
 
 export const customerRoute = express.Router();
 
@@ -33,7 +34,10 @@ customerRoute.get("/", async (req: Request, res: Response) => {
 	try {
 		const output = await usecase.execute({});
 
-		res.status(200).send(output);
+		res.format({
+			json: async () => res.status(200).send(output),
+			xml: async () => res.status(200).send(CustomerPresenter.listXML(output))
+		});
 	} catch (err) {
 		res.status(400).send(err);
 	}
