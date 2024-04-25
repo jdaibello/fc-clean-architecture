@@ -46,4 +46,17 @@ describe("Unit tests for notifications", () => {
 
 		expect(notification.hasErrors()).toBe(true);
 	});
+
+	it("should get all error props", () => {
+		const notification = new Notification();
+
+		const error = {
+			context: "customer",
+			message: "ID is required",
+		};
+
+		notification.addError(error);
+
+		expect(notification.getErrors()).toEqual([error]);
+	});
 });
